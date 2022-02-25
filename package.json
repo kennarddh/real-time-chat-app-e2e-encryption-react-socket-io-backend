@@ -1,0 +1,45 @@
+{
+	"name": "real-time-chat-app-e2e-encryption-react-socket-io-backend",
+	"version": "1.0.0",
+	"description": "real time chat app E2E encryption react socket io backend",
+	"main": "src/App.js",
+	"scripts": {
+		"build": "babel ./src --out-dir ./build",
+		"start": "set \"NODE_ENV=production\" && node ./build/App.js",
+		"dev": "nodemon --exec npx babel-node src/app.js",
+		"lint": "eslint .",
+		"prettier:fix": "prettier -w \"src/**/*.js\"",
+		"prettier:check": "prettier -c \"src/**/*.js\""
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/kennarddh/real-time-chat-app-e2e-encryption-react-socket-io-backend.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/kennarddh/real-time-chat-app-e2e-encryption-react-socket-io-backend/issues"
+	},
+	"homepage": "https://github.com/kennarddh/real-time-chat-app-e2e-encryption-react-socket-io-backend#readme",
+	"devDependencies": {
+		"@babel/cli": "^7.17.6",
+		"@babel/core": "^7.17.5",
+		"@babel/node": "^7.16.8",
+		"@babel/plugin-transform-runtime": "^7.17.0",
+		"@babel/preset-env": "^7.16.11",
+		"@babel/runtime": "^7.17.2",
+		"eslint": "^8.9.0",
+		"eslint-config-airbnb-base": "^15.0.0",
+		"eslint-config-prettier": "^8.4.0",
+		"eslint-plugin-import": "^2.25.4",
+		"eslint-plugin-prettier": "^4.0.0",
+		"nodemon": "^2.0.15",
+		"prettier": "^2.5.1"
+	},
+	"dependencies": {
+		"cors": "^2.8.5",
+		"dotenv": "^16.0.0",
+		"express": "^4.17.3",
+		"socket.io": "^4.4.1"
+	}
+}

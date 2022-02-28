@@ -1,5 +1,5 @@
 // Services
-import { AddUser } from '../Services/Users'
+import { AddUser, GetUsersByRoomName } from '../Services/Users'
 import { AddRoom, GetRoomByName } from '../Services/Rooms'
 
 // Listeners
@@ -29,8 +29,18 @@ const MainListener = socket => {
 
 	socket.join(roomName)
 
+	const users = GetUsersByRoomName(roomName)
+
 	socket.in(roomName).emit('room:notification', {
 		message: `${username} has joined the chat`,
+	})
+
+	socket.in(roomName).emit('room:users:receive', {
+		users: users.map(item => item.username),
+	})
+
+	socket.emit('room:users:receive', {
+		users: users.map(item => item.username),
 	})
 
 	// Listeners

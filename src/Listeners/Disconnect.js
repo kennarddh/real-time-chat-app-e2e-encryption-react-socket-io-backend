@@ -18,6 +18,10 @@ const Disconnect = socket => {
 			username: user.username,
 			message: `${user.username} has left the room`,
 		})
+
+		socket.in(user.room).emit('room:users:receive', {
+			users: users.map(item => item.username),
+		})
 	}
 }
 

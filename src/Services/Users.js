@@ -9,7 +9,7 @@ export const GetUserById = id => {
 }
 
 export const GetUsersByRoomName = roomName => {
-	return users.find(item => item.room === roomName)
+	return users.filter(item => item.room === roomName)
 }
 
 export const RemoveUserById = id => {

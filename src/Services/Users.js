@@ -8,6 +8,10 @@ export const GetUserById = id => {
 	return users.find(item => item.id === id)
 }
 
+export const GetUsersByRoomName = roomName => {
+	return users.find(item => item.room === roomName)
+}
+
 export const RemoveUserById = id => {
 	const index = users.findIndex(item => item.id === id)
 

@@ -1,9 +1,19 @@
-import { RemoveUserById } from '../Services/Users'
+// Services
+import { RemoveUserById, GetUsersByRoomName } from '../Services/Users'
+import { RemoveRoomByName } from '../Services/Rooms'
 
 const Disconnect = socket => {
 	const user = RemoveUserById(socket.id)
 
 	if (user) {
+		const users = GetUsersByRoomName(user.room)
+
+		if (!users) {
+			RemoveRoomByName(user.room)
+
+			return
+		}
+
 		socket.to(user.room).emit('room:notification', {
 			username: user.username,
 			message: `${user.username} has left the room`,

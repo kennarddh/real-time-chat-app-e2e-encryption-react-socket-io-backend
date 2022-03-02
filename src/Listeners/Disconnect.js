@@ -8,7 +8,7 @@ const Disconnect = socket => {
 	if (user) {
 		const users = GetUsersByRoomName(user.room)
 
-		if (!users) {
+		if (users.length === 0) {
 			RemoveRoomByName(user.room)
 
 			return
